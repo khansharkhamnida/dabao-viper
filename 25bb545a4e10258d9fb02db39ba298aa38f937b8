@@ -1,0 +1,19 @@
+Dabao/Features/RestaurantList/RestaurantListViewController.swift
+  s_dc14171e07f31a::t_135a559cbc4b93 100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "25bb545a4e10258d9fb02db39ba298aa38f937b8",
+  "prompts": {},
+  "sessions": {
+    "s_dc14171e07f31a": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_dc14171e07f31a",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}

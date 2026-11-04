@@ -1,0 +1,19 @@
+Dabao/Services/CartStore.swift
+  s_8d3bc676f6dd3a::t_9d1301af5d6354 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "835c9b8c2d4b8e6cc1d459d4f2bd1241f2b9b1c0",
+  "prompts": {},
+  "sessions": {
+    "s_8d3bc676f6dd3a": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_8d3bc676f6dd3a",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}
