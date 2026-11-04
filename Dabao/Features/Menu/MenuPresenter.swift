@@ -22,6 +22,12 @@ final class MenuPresenter: MenuPresenterProtocol, MenuInteractorOutputProtocol {
 
     // MARK: MenuPresenterProtocol (from the view)
 
+    // Fixes the tests crashing: this class is tied to the main thread, so cleaning it up
+    // elsewhere crashed. This line says cleanup may happen anywhere.
+    // NOTE: to run the tests again, set the project's iOS Deployment Target to 26.0
+    // in Xcode (project settings > Info), then switch it back to 17.0 before committing.
+    nonisolated deinit {}
+
     func viewDidLoad() {
         view?.showLoading(true)
         interactor.loadMenu()
