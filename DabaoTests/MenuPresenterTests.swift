@@ -93,4 +93,28 @@ final class MenuPresenterTests: XCTestCase {
 
     // TODO (Day 14): write a test that checks the "sold out" message appears
     // when the interactor reports `.soldOut`.
+    func test_soldOutFailure_showSoldOutMessage(){
+        let view = FakeView()
+        let presenter = MenuPresenter(view: view, interactor: FakeInteractor(), router: FakeRouter())
+
+        presenter.didFailToAdd(rice, reason: .soldOut)
+
+        XCTAssertEqual(view.messages, ["Sold out"])
+    }
+    
+    //1 item, not 1 items
+    func test_cartWithOneItem_usesSingularItemWording(){
+        //ARRANGE
+        let view = FakeView()
+        let presenter = MenuPresenter(view: view, interactor: FakeInteractor(), router: FakeRouter())
+        //ACT
+        presenter.didUpdateCart(CartSummary(quantities: ["a": 1], itemCount: 1, total: 4.5))
+        //ASSERT
+        XCTAssertEqual(view.cartBarTitle, .some("View cart · 1 item · $4.50"))
+    }
+    
+    
+    
+    
+    
 }
