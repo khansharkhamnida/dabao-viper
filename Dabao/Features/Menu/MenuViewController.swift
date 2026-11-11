@@ -34,6 +34,8 @@ final class MenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(MenuItemCell.self, forCellReuseIdentifier: MenuItemCell.reuseIdentifier)
         tableView.allowsSelection = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
@@ -95,9 +97,30 @@ extension MenuViewController: MenuViewProtocol {
     func showHeader(_ header: MenuHeaderViewModel) {
         title = header.title
         headerView.configure(with: header)
+        sizeHeaderView()
+    }
+
+    private func sizeHeaderView() {
         headerView.frame.size = headerView.systemLayoutSizeFitting(
-            CGSize(width: view.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+            CGSize(width: view.bounds.width, height: UIView.layoutFittingCompressedSize.height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel)
         tableView.tableHeaderView = headerView
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if headerView.frame.width != view.bounds.width, tableView.tableHeaderView != nil {
+            sizeHeaderView()
+        }
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory,
+           tableView.tableHeaderView != nil {
+            sizeHeaderView()
+        }
     }
 
     func showSections(_ sections: [MenuSectionViewModel]) {
@@ -162,11 +185,15 @@ final class MenuHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        subtitleLabel.font = .systemFont(ofSize: 15)
+        subtitleLabel.font = .preferredFont(forTextStyle: .subheadline)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.numberOfLines = 0
         subtitleLabel.textColor = .secondaryLabel
 
         closedLabel.text = "Closed now. You can browse, but not order."
-        closedLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        closedLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: .systemFont(ofSize: 13, weight: .semibold))
+        closedLabel.adjustsFontForContentSizeCategory = true
+        closedLabel.numberOfLines = 0
         closedLabel.textColor = .white
         closedLabel.backgroundColor = .systemRed
         closedLabel.textAlignment = .center
@@ -183,7 +210,7 @@ final class MenuHeaderView: UIView {
             stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            closedLabel.heightAnchor.constraint(equalToConstant: 32)
+            closedLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 32)
         ])
     }
 
@@ -193,6 +220,9 @@ final class MenuHeaderView: UIView {
 
     func configure(with header: MenuHeaderViewModel) {
         subtitleLabel.text = header.subtitle
+        // Spoken as "Rated 4.6 out of 5" instead of "star 4.6".
+        subtitleLabel.accessibilityLabel = header.subtitle.replacingOccurrences(
+            of: "★ (\\d+(\\.\\d+)?)", with: "Rated $1 out of 5", options: .regularExpression)
         closedLabel.isHidden = header.isOpen
     }
 }

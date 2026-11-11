@@ -31,15 +31,18 @@ final class MenuItemCell: UITableViewCell {
     }
 
     private func setUpViews() {
-        nameLabel.font = .systemFont(ofSize: 16, weight: .semibold)
-        detailLabel.font = .systemFont(ofSize: 12)
+        nameLabel.font = .preferredFont(forTextStyle: .headline)
+        nameLabel.numberOfLines = 0
+        detailLabel.font = .preferredFont(forTextStyle: .caption1)
         detailLabel.textColor = .secondaryLabel
-        detailLabel.numberOfLines = 2
-        priceLabel.font = .systemFont(ofSize: 14, weight: .medium)
-        quantityLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        detailLabel.numberOfLines = 0
+        priceLabel.font = .preferredFont(forTextStyle: .subheadline)
+        quantityLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .systemFont(ofSize: 14, weight: .bold))
+        [nameLabel, detailLabel, priceLabel, quantityLabel].forEach { $0.adjustsFontForContentSizeCategory = true }
         quantityLabel.textColor = UIColor(named: "AccentColor")
         spicyIcon.tintColor = .systemRed
         spicyIcon.contentMode = .scaleAspectFit
+        spicyIcon.isAccessibilityElement = false
 
         addButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         removeButton.setImage(UIImage(systemName: "minus.circle"), for: .normal)
@@ -84,12 +87,21 @@ final class MenuItemCell: UITableViewCell {
 
     func configure(with row: MenuItemViewModel) {
         nameLabel.text = row.name
+        var nameSpeech = row.name
+        if row.isSpicy { nameSpeech += ", spicy" }
+        if row.isSoldOut { nameSpeech += ", sold out" }
+        nameLabel.accessibilityLabel = nameSpeech
         detailLabel.text = row.detail
         priceLabel.text = row.priceText
         spicyIcon.isHidden = !row.isSpicy
         quantityLabel.text = row.quantityText
         quantityLabel.isHidden = row.quantityText == nil
         removeButton.isHidden = row.quantityText == nil
+
+        let quantity = row.quantityText?.filter(\.isNumber) ?? ""
+        quantityLabel.accessibilityLabel = "\(quantity) in your order"
+        addButton.accessibilityLabel = "Add one \(row.name)"
+        removeButton.accessibilityLabel = "Remove one \(row.name)"
 
         // Sold-out dishes are greyed out.
         contentView.alpha = row.isSoldOut ? 0.4 : 1.0
