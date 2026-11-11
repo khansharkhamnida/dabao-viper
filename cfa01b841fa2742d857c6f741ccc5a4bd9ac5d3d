@@ -1,0 +1,19 @@
+DabaoTests/MenuPresenterTests.swift
+  s_7a41cfd8f4e59f::t_fb2a69bd171293 96-119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "cfa01b841fa2742d857c6f741ccc5a4bd9ac5d3d",
+  "prompts": {},
+  "sessions": {
+    "s_7a41cfd8f4e59f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_7a41cfd8f4e59f",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}

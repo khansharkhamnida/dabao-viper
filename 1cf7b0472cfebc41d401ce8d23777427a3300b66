@@ -1,0 +1,19 @@
+Dabao/Features/Menu/MenuItemCell.swift
+  s_3e272004a27635::t_591fa596fc0f8b 47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "1cf7b0472cfebc41d401ce8d23777427a3300b66",
+  "prompts": {},
+  "sessions": {
+    "s_3e272004a27635": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_3e272004a27635",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}

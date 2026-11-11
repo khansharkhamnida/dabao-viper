@@ -1,0 +1,19 @@
+Dabao/Features/RestaurantInfo/RestaurantInfoPresenter.swift
+  s_e28a1a7a42f971::t_718fda41d893bc 28-30,37-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "39b6a624bb414bfce70b171119e24548dd7a56a5",
+  "prompts": {},
+  "sessions": {
+    "s_e28a1a7a42f971": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_e28a1a7a42f971",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}

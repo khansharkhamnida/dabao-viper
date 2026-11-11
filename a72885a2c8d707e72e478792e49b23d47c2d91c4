@@ -1,0 +1,23 @@
+Dabao/Features/RestaurantList/RestaurantListViewController.swift
+  s_029b0a6efd0538::t_edcabed01ff2c1 12-13,38,54-57,64-93
+Dabao/Services/RestaurantFilter.swift
+  s_029b0a6efd0538::t_759249e0a54997 1-42
+DabaoTests/RestaurantFilterTests.swift
+  s_029b0a6efd0538::t_e0419312939404 1-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "a72885a2c8d707e72e478792e49b23d47c2d91c4",
+  "prompts": {},
+  "sessions": {
+    "s_029b0a6efd0538": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_029b0a6efd0538",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}

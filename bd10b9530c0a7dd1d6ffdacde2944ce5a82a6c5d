@@ -1,0 +1,21 @@
+Dabao/Features/Menu/MenuPresenter.swift
+  s_8c4f1155538ee6::t_303f910b6af7eb 25-30
+Dabao/Features/RestaurantInfo/RestaurantInfoPresenter.swift
+  s_8c4f1155538ee6::t_bcd14f361b3eab 18-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "bd10b9530c0a7dd1d6ffdacde2944ce5a82a6c5d",
+  "prompts": {},
+  "sessions": {
+    "s_8c4f1155538ee6": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_8c4f1155538ee6",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}
