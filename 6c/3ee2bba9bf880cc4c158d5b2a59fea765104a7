@@ -1,0 +1,38 @@
+Dabao/Features/Menu/MenuItemCell.swift
+  s_4951a9b3e84b35::t_343a0387d98886 40
+  s_4951a9b3e84b35::t_adf1af39758f59 34-36,38-39,41,45,90-93,101-105
+Dabao/Features/Menu/MenuViewController.swift
+  s_4951a9b3e84b35::t_343a0387d98886 37-38,100-103,105-107,111-125,188-190,194-196,213,223-225
+Dabao/Features/RestaurantList/RestaurantListViewController.swift
+  s_4951a9b3e84b35::t_86625d92fa7bae 40-41
+Dabao/Features/RestaurantList/RestaurantCell.swift
+  s_4951a9b3e84b35::t_86625d92fa7bae 29-35,42-44,58-59,65-66,86-87,92-102
+DabaoTest/DabaoTest.swift
+  s_61f64a9236a8a6::t_652b3a98fe0143 1-41
+DabaoTest/DabaoTestLaunchTests.swift
+  s_61f64a9236a8a6::t_08fcd0a25e5a25 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6c3ee2bba9bf880cc4c158d5b2a59fea765104a7",
+  "prompts": {},
+  "sessions": {
+    "s_4951a9b3e84b35": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "340fface-7f94-4b69-9190-8f7e806f94e6",
+        "model": "unknown"
+      },
+      "human_author": "khansharkhamnida <kzsghazali.kzsg@gmail.com>"
+    },
+    "s_61f64a9236a8a6": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "5148598a-cc92-4605-8099-f7222fe8663b",
+        "model": "unknown"
+      },
+      "human_author": "khansharkhamnida <kzsghazali.kzsg@gmail.com>"
+    }
+  }
+}
